@@ -1,5 +1,4 @@
 import XCTest
-import JKCommunity
 
 class Tests: XCTestCase {
     

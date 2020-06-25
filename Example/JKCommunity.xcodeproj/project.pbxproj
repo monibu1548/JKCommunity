@@ -15,6 +15,16 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B99C869C249E747500934757 /* SignViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99C869A249E747500934757 /* SignViewController.storyboard */; };
+		B99C869D249E747500934757 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C869B249E747500934757 /* SignViewController.swift */; };
+		B99C86A1249E749800934757 /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C86A0249E749800934757 /* RootWindow.swift */; };
+		B99C86A3249E74CF00934757 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C86A2249E74CF00934757 /* MainTabBarController.swift */; };
+		B99C86A5249E74D700934757 /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99C86A4249E74D700934757 /* MainTabBarController.storyboard */; };
+		B99C86A7249E752A00934757 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B99C86A6249E752A00934757 /* GoogleService-Info.plist */; };
+		B99C86AC249E75A900934757 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99C86AB249E75A900934757 /* FeedViewController.storyboard */; };
+		B99C86AE249E75B800934757 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C86AD249E75B800934757 /* FeedViewController.swift */; };
+		B99C86B0249E75DC00934757 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99C86AF249E75DC00934757 /* SettingViewController.storyboard */; };
+		B99C86B2249E75EB00934757 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99C86B1249E75EB00934757 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +40,7 @@
 /* Begin PBXFileReference section */
 		2BA66ABE210B9C0966D7C905 /* Pods-JKCommunity_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKCommunity_Example.release.xcconfig"; path = "Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2E532EE371B187DA8A817C89 /* Pods_JKCommunity_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKCommunity_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		339E7B27BE7E8B481B5C44C7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		339E7B27BE7E8B481B5C44C7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		41F089D3745368886647DB57 /* Pods_JKCommunity_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKCommunity_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* JKCommunity_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKCommunity_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,10 +53,20 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		681F45C81274269668284937 /* Pods-JKCommunity_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKCommunity_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKCommunity_Tests/Pods-JKCommunity_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6B517B1D480BE4BC63CDB055 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6B517B1D480BE4BC63CDB055 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9F541875BBD442CE466721EB /* Pods-JKCommunity_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKCommunity_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKCommunity_Tests/Pods-JKCommunity_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B99C869A249E747500934757 /* SignViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignViewController.storyboard; sourceTree = "<group>"; };
+		B99C869B249E747500934757 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		B99C86A0249E749800934757 /* RootWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
+		B99C86A2249E74CF00934757 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		B99C86A4249E74D700934757 /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
+		B99C86A6249E752A00934757 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B99C86AB249E75A900934757 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
+		B99C86AD249E75B800934757 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B99C86AF249E75DC00934757 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		B99C86B1249E75EB00934757 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C1BA124DA20C838C9BFD46D1 /* Pods-JKCommunity_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKCommunity_Example.debug.xcconfig"; path = "Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E45496FE16D9D1FD09DC1889 /* JKCommunity.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = JKCommunity.podspec; path = ../JKCommunity.podspec; sourceTree = "<group>"; };
+		E45496FE16D9D1FD09DC1889 /* JKCommunity.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKCommunity.podspec; path = ../JKCommunity.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +122,14 @@
 		607FACD21AFB9204008FA782 /* Example for JKCommunity */ = {
 			isa = PBXGroup;
 			children = (
+				B99C869F249E749100934757 /* RootView */,
+				B99C869E249E748700934757 /* Home */,
+				B99C8697249E742E00934757 /* Sign */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				B99C86A6249E752A00934757 /* GoogleService-Info.plist */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -156,8 +180,53 @@
 				9F541875BBD442CE466721EB /* Pods-JKCommunity_Tests.debug.xcconfig */,
 				681F45C81274269668284937 /* Pods-JKCommunity_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B99C8697249E742E00934757 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				B99C869A249E747500934757 /* SignViewController.storyboard */,
+				B99C869B249E747500934757 /* SignViewController.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		B99C869E249E748700934757 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B99C86AA249E759400934757 /* Feed */,
+				B99C86A9249E758B00934757 /* Setting */,
+				B99C86A2249E74CF00934757 /* MainTabBarController.swift */,
+				B99C86A4249E74D700934757 /* MainTabBarController.storyboard */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		B99C869F249E749100934757 /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				B99C86A0249E749800934757 /* RootWindow.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		B99C86A9249E758B00934757 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B99C86AF249E75DC00934757 /* SettingViewController.storyboard */,
+				B99C86B1249E75EB00934757 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B99C86AA249E759400934757 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B99C86AB249E75A900934757 /* FeedViewController.storyboard */,
+				B99C86AD249E75B800934757 /* FeedViewController.swift */,
+			);
+			name = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +241,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				0332CB1B9049CE354D73CBFA /* [CP] Embed Pods Frameworks */,
+				898A61462CB760389A071E7D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,6 +297,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -246,9 +317,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B99C86B0249E75DC00934757 /* SettingViewController.storyboard in Resources */,
+				B99C869C249E747500934757 /* SignViewController.storyboard in Resources */,
+				B99C86AC249E75A900934757 /* FeedViewController.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				B99C86A5249E74D700934757 /* MainTabBarController.storyboard in Resources */,
+				B99C86A7249E752A00934757 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,32 +368,70 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/JKExtension/JKExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		898A61462CB760389A071E7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKCommunity_Example/Pods-JKCommunity_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C193BF46C36FFF5307FE4D03 /* [CP] Check Pods Manifest.lock */ = {
@@ -351,6 +465,11 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				B99C86A3249E74CF00934757 /* MainTabBarController.swift in Sources */,
+				B99C869D249E747500934757 /* SignViewController.swift in Sources */,
+				B99C86AE249E75B800934757 /* FeedViewController.swift in Sources */,
+				B99C86B2249E75EB00934757 /* SettingViewController.swift in Sources */,
+				B99C86A1249E749800934757 /* RootWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,9 +616,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JKCommunity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.JKFirebaseSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -512,9 +632,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JKCommunity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.JKFirebaseSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

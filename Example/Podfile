@@ -4,6 +4,7 @@ platform :ios, '13.0'
 target 'JKCommunity_Example' do
   pod 'JKCommunity', :path => '../'
   pod 'JKFirebaseSDK', :git => 'https://github.com/monibu1548/JKFirebaseSDK'
+  pod 'JKExtension', :git => 'https://github.com/monibu1548/JKExtension'
 
   target 'JKCommunity_Tests' do
     inherit! :search_paths
