@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
         
         //JKCommunity.shared.insertPost(title: "첫번째 포스트", content: "안녕하세요 :)").subscribe().disposed(by: disposeBag)
         
-        //JKCommunity.shared.insertComment(postID: "r0yXwBRucKI9SOxcorD1", content: "헤헤 본인댓글 3").subscribe().disposed(by: disposeBag)
+        //JKCommunity.shared.insertComment(postID: "9iWPx3r3JZtWZyWHnyvn", content: "헤헤 본인댓글").subscribe().disposed(by: disposeBag)
         
         //JKCommunity.shared.deletePost(postID: "1LbHbVvymA0NKQ4ACzBW").subscribe().disposed(by: disposeBag)
         
@@ -28,6 +28,8 @@ class FeedViewController: UIViewController {
         
         // JKCommunity.shared.getComments(commentIDs: ["AHubRnk29puR6PCutuqz", "jrhgMRxNhIhHmIC7v1zY", "sLTVIXjXTP1pu0NR5HLN"]).debug("xxx: ").subscribe().disposed(by: disposeBag)
         
-        //JKCommunity.shared.insertPost(title: "이미지 확인", content: "컨텐츠~~", images: [UIImage(named: "Firebase")!,UIImage(named: "Firebase")!,UIImage(named: "Firebase")!]).debug("xxx: ").subscribe().disposed(by: disposeBag)
+         //JKCommunity.shared.insertPost(title: "이미지 확인aaaaaa", content: "컨텐츠~sdfdfsdf~", images: [UIImage(named: "Firebase")!]).debug("xxx: ").subscribe().disposed(by: disposeBag)
+        
+        // JKCommunity.shared.deletePost(postID: "gayFE86BBbM1LITyrdVW").debug("xxx: ").subscribe().disposed(by: disposeBag)
     }
 }

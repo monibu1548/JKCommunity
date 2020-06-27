@@ -17,6 +17,10 @@ public enum JKCommunityError: Error {
     case readPostError
     case uploadImageError
     case insertPostError
+    case deleteCommentError
+    case deleteImageError
+    case deletePostError
+    case alreadyDeletedPost
 }
 
 fileprivate enum CommunityKeys: String {
@@ -144,28 +148,81 @@ public class JKCommunity {
             .asSingle()
     }
 
-    public func deletePost(postID: String) -> Single<Result<Void, FirestoreError>> {
-        let commentIDs = firestore.rx.read(key: CommunityKeys.post.key, id: postID, type: JKPost.self)
-            .filterMap { $0.value }
-            .map { $0.commentIDs }
+    public func deletePost(postID: String) -> Single<Result<Void, JKCommunityError>> {
+        let postResult = firestore.rx.read(key: CommunityKeys.post.key, id: postID, type: JKPost.self)
             .asObservable()
+            .share()
+        
+        let postValue = postResult
+            .filterMap { $0.value }
+        
+        let postError = postResult
+            .filterMap { $0.error }
 
-        let deleteComments = commentIDs
+        let commentIDs = postValue
+            .map { $0.commentIDs }
+        
+        let imageURLs = postValue
+            .map { $0.imageURLs }
+
+        let deleteCommentsResult = commentIDs
             .map { [weak self] comments -> [Observable<Result<Void, FirestoreError>>] in
                 return comments
                     .map { self?.firestore.rx.delete(key: CommunityKeys.comment.key, id: $0).asObservable() }
                     .compactMap { $0 }
             }
-            .flatMapLatest { comments -> Observable<Result<Void, FirestoreError>> in
-                return Observable.zip(comments).map { _ -> Result<Void, FirestoreError> in
+            .flatMapLatest { comments -> Observable<Result<Void, JKCommunityError>> in
+                return Observable.zip(comments).map { results -> Result<Void, JKCommunityError> in
                     return .success(Void())
                 }
             }
+            .catchErrorJustReturn(Result<Void, JKCommunityError>.failure(.unknownError))
+            .share()
 
-        let deletePost = firestore.rx.delete(key: CommunityKeys.post.key, id: postID)
-            .asObservable()
+        let deleteImagesResult = imageURLs
+            .map { [weak self] imageURLs -> [Observable<Result<Void, FirebaseStorageError>>] in
+                return imageURLs
+                    .map { self?.firestorage.rx.deleteImage(downloadURL: $0).asObservable() }
+                    .compactMap { $0 }
+            }
+            .flatMapLatest { imageURLs -> Observable<Result<Void, JKCommunityError>> in
+                return Observable.zip(imageURLs).map { results -> Result<Void, JKCommunityError> in
+                    return .success(Void())
+                }
+            }
+            .catchErrorJustReturn(Result<Void, JKCommunityError>.failure(.unknownError))
+            .share()
 
-        return deleteComments.concat(deletePost).asSingle()
+        let deletePostResult = postValue
+            .flatMapLatest { [weak self] post -> Observable<Result<Void, FirestoreError>> in
+                guard let self = self else {
+                    return .just(Result<Void, FirestoreError>.failure(.defaultError("self is nil")))
+                }
+
+                return  self.firestore.rx.delete(key: CommunityKeys.post.key, id: post.id).asObservable()
+            }
+
+        let combinedDeletePostResult = Observable
+            .zip(
+                deletePostResult,
+                deleteCommentsResult,
+                deleteImagesResult
+            ) { post, comments, images -> Result<Void, JKCommunityError> in
+                guard post.value != nil else {
+                    return Result<Void, JKCommunityError>.failure(.deletePostError)
+                }
+                return Result<Void, JKCommunityError>.success(Void())
+            }
+
+        let deletedPostErrorResult = postError
+            .map { _ in Result<Void, JKCommunityError>.failure(.alreadyDeletedPost) }
+
+        return Observable
+            .merge(
+                combinedDeletePostResult,
+                deletedPostErrorResult
+            )
+            .asSingle()
     }
 
     public func deleteComment(commentID: String) -> Single<Result<Void, FirestoreError>> {
