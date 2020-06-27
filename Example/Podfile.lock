@@ -190,16 +190,16 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
-  - FBSDKCoreKit (7.0.1):
-    - FBSDKCoreKit/Basics (= 7.0.1)
-    - FBSDKCoreKit/Core (= 7.0.1)
-  - FBSDKCoreKit/Basics (7.0.1)
-  - FBSDKCoreKit/Core (7.0.1):
+  - FBSDKCoreKit (7.1.0):
+    - FBSDKCoreKit/Basics (= 7.1.0)
+    - FBSDKCoreKit/Core (= 7.1.0)
+  - FBSDKCoreKit/Basics (7.1.0)
+  - FBSDKCoreKit/Core (7.1.0):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (7.0.1):
-    - FBSDKLoginKit/Login (= 7.0.1)
-  - FBSDKLoginKit/Login (7.0.1):
-    - FBSDKCoreKit (~> 7.0.1)
+  - FBSDKLoginKit (7.1.0):
+    - FBSDKLoginKit/Login (= 7.1.0)
+  - FBSDKLoginKit/Login (7.1.0):
+    - FBSDKCoreKit (~> 7.1.0)
   - Firebase/Analytics (6.13.0):
     - Firebase/Core
   - Firebase/Auth (6.13.0):
@@ -379,6 +379,7 @@ PODS:
     - Firebase/RemoteConfig (~> 6.13.0)
     - Firebase/Storage (~> 6.13.0)
     - GoogleSignIn
+    - JKExtension
     - RxOptional (~> 4.1.0)
     - RxSwift (~> 5.0.1)
   - leveldb-library (1.22)
@@ -458,7 +459,7 @@ CHECKOUT OPTIONS:
     :commit: a51f2002682ac2e30235820db5c22d837681bd71
     :git: https://github.com/monibu1548/JKExtension
   JKFirebaseSDK:
-    :commit: 6f8baebe1e374a925f560c982762d5da82e7f3f5
+    :commit: e99433a8a477ca5d8318ce26de37e6c9531cb313
     :git: https://github.com/monibu1548/JKFirebaseSDK
 
 SPEC CHECKSUMS:
@@ -466,8 +467,8 @@ SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  FBSDKCoreKit: 9cc05bec0568a5955c82eb59ae95da0fe125b88d
-  FBSDKLoginKit: ecc6fd43c81b60f5b5e9388d58f137aff4a5d00b
+  FBSDKCoreKit: 78929d105d244f8fddfe03c44afc55d97ec12e9f
+  FBSDKLoginKit: 5536004bb84805391e7d089508386c3dba02128d
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseABTesting: 821a3a3e4a145987e80fee3657c4de1cb9adf693
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
@@ -494,7 +495,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   JKCommunity: 6c2353be9491b279d29411a857da239f205f22a9
   JKExtension: d7f90ddd79fab80df905fd955dbc21c9c84c9d59
-  JKFirebaseSDK: 4997f6fc594f8a7eb1c18942a2a46ca2e4cf3be2
+  JKFirebaseSDK: 91439da4eaecc29bfbb82f9fc65ebfd39135b0ae
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75

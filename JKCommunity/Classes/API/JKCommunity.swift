@@ -13,8 +13,10 @@ import RxCocoa
 import RxOptional
 
 public enum JKCommunityError: Error {
-    case defaultError
+    case unknownError
     case readPostError
+    case uploadImageError
+    case insertPostError
 }
 
 fileprivate enum CommunityKeys: String {
@@ -34,12 +36,64 @@ public class JKCommunity {
     private init() {}
 
     private let firestore = FirebaseFirestore.shared
+    private let firestorage = FirebaseStorage.shared
 
-    public func insertPost(title: String, content: String) -> Single<Result<DocumentKey, FirestoreError>> {
+    public func insertPost(title: String, content: String, images: [UIImage]) -> Single<Result<DocumentKey, JKCommunityError>> {
         let userID = FirebaseAuthentication.shared.currentUser()?.uid ?? "EMPTY"
 
-        let newPost = JKPost(id: "", title: title, content: content, userID: userID, createdAt: Date().toTimestamp(), updatedAt: nil, commentIDs: [])
-        return firestore.rx.insert(key: CommunityKeys.post.key, object: newPost, withID: true)
+        let post = JKPost(id: "", title: title, content: content, userID: userID, createdAt: Date().toTimestamp(), updatedAt: nil, commentIDs: [], imageURLs: [])
+    
+        let insertPost = firestore.rx.insert(key: CommunityKeys.post.key, object: post, withID: true)
+            .asObservable()
+            .share()
+        
+        let insertPostValue = insertPost
+            .filterMap { $0.value }
+            .asObservable()
+
+        let insertPostError = insertPost
+            .filterMap { $0.error }
+            .map { _ in Result<DocumentKey, JKCommunityError>.failure(.insertPostError) }
+            .asObservable()
+
+        let insertImageResult = insertPostValue
+            .flatMapLatest { [weak self] postID -> Observable<Result<DocumentKey, JKCommunityError>> in
+                guard let self = self else { return .just(Result<DocumentKey, JKCommunityError>.failure(.unknownError)) }
+                guard images.isNotEmpty else { return .just(Result<DocumentKey, JKCommunityError>.success(postID)) }
+                
+                let insertImages = images.map { self.firestorage.rx.insertImage(path: "\(CommunityKeys.post.key)/\(postID)", image: $0).filterMap { $0.value }.asObservable() }
+
+                let imageURLs = Observable.zip(insertImages).map { $0.map { $0.absoluteString } }
+
+                let upsertDocumentResult = imageURLs
+                    .flatMapLatest { imageURLs in
+                        self.firestore.rx.upsertDocumentField(key: CommunityKeys.post.key, id: postID, data: ["imageURLs": imageURLs])
+                    }
+                    .share()
+
+                let upsertDocumentValue = upsertDocumentResult
+                    .filterMap { $0.value }
+                    .map { _ in Result<DocumentKey, JKCommunityError>.success(postID) }
+                    .asObservable()
+
+                let upsertDocumentError = upsertDocumentResult
+                    .filterMap { $0.error }
+                    .map { _ in Result<DocumentKey, JKCommunityError>.failure(.uploadImageError) }
+                    .asObservable()
+
+                return Observable
+                    .merge(
+                        upsertDocumentValue,
+                        upsertDocumentError
+                    )
+        }
+        
+        return Observable
+            .merge(
+                insertImageResult,
+                insertPostError
+            )
+            .asSingle()
     }
     
     public func updatePost(post: JKPost, title: String? = nil, content: String? = nil) -> Single<Result<Void, FirestoreError>> {
@@ -50,7 +104,8 @@ public class JKCommunity {
             userID: post.userID,
             createdAt: post.createdAt,
             updatedAt: Date().toTimestamp(),
-            commentIDs: post.commentIDs
+            commentIDs: post.commentIDs,
+            imageURLs: post.imageURLs
         )
 
         return firestore.rx.update(key: CommunityKeys.post.key, id: post.id, object: updatedPost)
@@ -65,7 +120,8 @@ public class JKCommunity {
             content: content,
             userID: userID,
             createdAt: Date().toTimestamp(),
-            updatedAt: nil
+            updatedAt: nil,
+            imageURLs: []
         )
 
         let commentID = firestore.rx.insert(key: CommunityKeys.comment.key, object: comment, withID: true)
@@ -153,40 +209,7 @@ public class JKCommunity {
             .merge(postValue, postError)
             .asSingle()
     }
-    
-    private func primitiveCommentToComment(primitiveComment: JKComment) -> Single<Result<JKComment, FirestoreError>> {
-        let userResult = firestore.rx.read(key: CommunityKeys.user.key, id: primitiveComment.userID, type: JKUser.self)
 
-        let userValue = userResult
-            .filterMap { $0.value }
-            .map { user -> Result<JKComment, FirestoreError> in
-                let comment = JKComment(
-                    id: primitiveComment.id,
-                    postID: primitiveComment.postID,
-                    content: primitiveComment.content,
-                    userID: primitiveComment.userID,
-                    createdAt: primitiveComment.createdAt,
-                    updatedAt: primitiveComment.updatedAt
-                )
-                return .success(comment)
-            }
-            .asObservable()
-        
-        let userError = userResult
-            .filterMap { $0.error }
-            .map { _ -> Result<JKComment, FirestoreError> in
-                return .failure(.defaultError("cannot read comment id: \(primitiveComment.id)"))
-            }
-            .asObservable()
-        
-        return Observable
-            .merge(
-                userValue,
-                userError
-            )
-            .asSingle()
-    }
-    
     public func getComments(commentIDs: [String]) -> Single<Result<[JKComment], FirestoreError>> {
         let commentObservablesResult = commentIDs.map { firestore.rx.read(key: CommunityKeys.comment.key, id: $0, type: JKComment.self).filterMap { $0 }.asObservable() }
         

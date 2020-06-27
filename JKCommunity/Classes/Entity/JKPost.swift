@@ -16,4 +16,5 @@ public struct JKPost: Codable {
     public let createdAt: Int
     public let updatedAt: Int?
     public let commentIDs: [String]
+    public let imageURLs: [String]
 }

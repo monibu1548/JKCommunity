@@ -15,4 +15,5 @@ public struct JKComment: Codable {
     public let userID: String
     public let createdAt: Int
     public let updatedAt: Int?
+    public let imageURLs: [String]
 }

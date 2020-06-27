@@ -27,5 +27,7 @@ class FeedViewController: UIViewController {
         //JKCommunity.shared.getPosts(limit: 20, latestPostID: nil).debug("xxx: ").subscribe().disposed(by: disposeBag)
         
         // JKCommunity.shared.getComments(commentIDs: ["AHubRnk29puR6PCutuqz", "jrhgMRxNhIhHmIC7v1zY", "sLTVIXjXTP1pu0NR5HLN"]).debug("xxx: ").subscribe().disposed(by: disposeBag)
+        
+        //JKCommunity.shared.insertPost(title: "이미지 확인", content: "컨텐츠~~", images: [UIImage(named: "Firebase")!,UIImage(named: "Firebase")!,UIImage(named: "Firebase")!]).debug("xxx: ").subscribe().disposed(by: disposeBag)
     }
 }
